@@ -1,0 +1,47 @@
+﻿@page
+@model Product_Ratings_Core_Web_App.Pages.Products.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<header class="masthead">
+    <div class="container" style="height:50vh">
+        <div class="intro-text">
+            <div class="intro-lead-in">Update Product</div>
+
+
+        </div>
+    </div>
+</header>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Product.Id" />
+            <div class="form-group">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

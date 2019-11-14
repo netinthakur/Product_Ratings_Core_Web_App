@@ -1,0 +1,51 @@
+﻿@page
+@model Product_Ratings_Core_Web_App.Pages.Ratings.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <header class="masthead">
+        <div class="container" style="height:50vh">
+            <div class="intro-text">
+                <div class="intro-lead-in">Rate Details</div>
+
+
+            </div>
+        </div>
+    </header>
+
+<div>
+    <h4>Rating</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating.Customer.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating.Product)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating.Product.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating.RatingValue)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating.RatingValue)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating.Comment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating.Comment)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Rating.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

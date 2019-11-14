@@ -1,0 +1,63 @@
+﻿@page
+@model Product_Ratings_Core_Web_App.Pages.Ratings.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<header class="masthead">
+    <div class="container" style="height:50vh">
+        <div class="intro-text">
+            <div class="intro-lead-in"> Ratings</div>
+
+
+        </div>
+    </div>
+</header>
+
+<p>
+    <a class="btn btn-secondary" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].RatingValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating[0].Comment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Rating)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RatingValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="btn btn-secondary" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
